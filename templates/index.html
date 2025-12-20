@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data.profile.name }} - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+        .gradient-text { 
+            background: linear-gradient(135deg, #3b82f6, #1e40af); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .glass-effect-light {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transform: translateY(-4px);
+        }
+        .rounded-3xl { border-radius: 30px; }
+        
+        /* 3D Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.1); }
+            50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.2); }
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes blur-animation {
+            0%, 100% { filter: blur(0px); }
+            50% { filter: blur(1px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        .glow-animation {
+            animation: glow 2s ease-in-out infinite;
+        }
+        .gradient-animation {
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+        }
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(30, 41, 59, 0.1));
+            box-shadow: inset 0 0 60px rgba(59, 130, 246, 0.1);
+        }
+        .blur-bg {
+            animation: blur-animation 3s ease-in-out infinite;
+        }
+        
+        .perspective {
+            perspective: 1000px;
+        }
+        .transform-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+        .transform-3d:hover {
+            transform: rotateY(5deg) rotateX(-5deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Rahi</h1>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-blue-400 transition">Home</a>
+                <a href="/about" class="hover:text-blue-400 transition">About</a>
+                <a href="/projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="/contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-20 perspective">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1 slide-up">
+                    <div class="mb-4">
+                        <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 slide-up">{{ data.profile.name }}</h1>
+                    </div>
+                    <p class="text-2xl gradient-text mb-6 font-semibold slide-up" style="animation-delay: 0.1s;">{{ data.profile.title }}</p>
+                    <p class="text-lg text-slate-300 mb-8 max-w-lg slide-up" style="animation-delay: 0.2s;">{{ data.profile.summary }}</p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-8 slide-up" style="animation-delay: 0.3s;">
+                        <a href="mailto:{{ data.profile.email }}" class="glass-card glass-effect-light px-8 py-3 rounded-2xl font-semibold transition transform hover:scale-105 text-blue-400 border-blue-500/30 glow-animation">Get In Touch</a>
+                        <a href="/about" class="glass-card px-8 py-3 rounded-2xl font-semibold transition transform hover:scale-105 text-slate-200">Learn More</a>
+                    </div>
+                    
+                    <div class="flex gap-4 slide-up" style="animation-delay: 0.4s;">
+                        {% for social in data.profile.socials %}
+                        <a href="{{ social.url }}" target="_blank" class="text-slate-400 hover:text-blue-400 transition text-lg">{{ social.platform }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="flex-1 flex justify-center perspective slide-up" style="animation-delay: 0.2s;">
+                    <div class="glass-card p-1 rounded-3xl glow-animation float-animation transform-3d">
+                        <img src="/static/images/profile.jpg" alt="{{ data.profile.name }}" class="w-72 h-72 rounded-3xl object-cover shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills Preview -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Featured Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for skill_group in data.skills %}
+                <div class="glass-card p-8 rounded-3xl hover:shadow-2xl transition border border-slate-700">
+                    <h3 class="text-xl font-bold text-blue-400 mb-6">{{ skill_group.category }}</h3>
+                    <div class="flex flex-wrap gap-3">
+                        {% for skill in skill_group.skills %}
+                        <span class="glass-effect-light text-blue-300 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/30">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Preview -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {% for project in data.projects[:2] %}
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition">{{ project.title }}</h3>
+                        <p class="mt-4 text-slate-300 leading-relaxed">{{ project.description }}</p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            {% for tech in project.tech_stack.split(', ') %}
+                            <span class="text-xs glass-effect-light text-slate-300 px-3 py-1 rounded-full">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="text-center mt-12">
+                <a href="/projects" class="text-blue-400 hover:text-blue-300 font-semibold text-lg transition">View All Projects →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Programming Platforms -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">Competitive Programming</h2>
+            <p class="text-center text-slate-300 mb-12 max-w-2xl mx-auto">Active problem solver across multiple platforms with consistent practice and high ratings</p>
+            
+            <div class="glass-card rounded-3xl border border-slate-700 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-4 divide-x divide-slate-700">
+                    {% for platform in data.coding_platforms %}
+                    <a href="{{ platform.url }}" target="_blank" class="p-8 hover:bg-blue-500/10 transition group text-center">
+                        <div class="text-5xl mb-4 group-hover:scale-110 transition transform">{{ platform.icon }}</div>
+                        <h3 class="text-lg font-bold text-white mb-2">{{ platform.name }}</h3>
+                        <p class="text-sm text-slate-300 mb-4">{{ platform.description }}</p>
+                        <div class="space-y-1 text-sm">
+                            <p class="text-blue-400 font-semibold">{{ platform.problems_solved }}</p>
+                            <p class="text-blue-300">{{ platform.rating }}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-effect border-t py-12 mt-20">
+        <div class="container mx-auto px-6 text-center text-slate-400">
+            <p class="mb-4">© 2025 {{ data.profile.name }}. All rights reserved.</p>
+            <p class="text-sm">Built with Python & Flask</p>
+        </div>
+    </footer>
+
+</body>
+</html>

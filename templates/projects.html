@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - {{ data.profile.name }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
+        .gradient-text { background: linear-gradient(135deg, #3b82f6, #1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .glass-effect-light {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .rounded-3xl { border-radius: 30px; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Rahi</h1>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-blue-400 transition">Home</a>
+                <a href="/about" class="hover:text-blue-400 transition">About</a>
+                <a href="/projects" class="text-blue-400 font-semibold">Projects</a>
+                <a href="/contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-16">
+        <h1 class="text-5xl font-bold text-white mb-4">Projects</h1>
+        <p class="text-xl text-slate-400 mb-12">A collection of my work showcasing expertise in full-stack development and problem solving.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {% for project in data.projects %}
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-48 bg-gradient-to-br from-blue-500/20 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl text-blue-400/50">→</span>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition mb-4">{{ project.title }}</h3>
+                    <p class="text-slate-300 leading-relaxed mb-6">{{ project.description }}</p>
+                    
+                    <div class="mb-6">
+                        <p class="text-sm text-slate-500 font-semibold mb-3">TECH STACK</p>
+                        <div class="flex flex-wrap gap-2">
+                            {% for tech in project.tech_stack.split(', ') %}
+                            <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <a href="{{ project.link }}" class="glass-effect-light text-blue-400 px-6 py-2 rounded-xl transition font-semibold border border-blue-500/30">View Project</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Project Categories -->
+        <section class="mt-20">
+            <h2 class="text-3xl font-bold text-white mb-8">Project Categories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">🚀 Web Applications</h3>
+                    <p class="text-slate-300">Full-stack web applications built with modern frameworks and best practices.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">🎯 AI & Machine Learning</h3>
+                    <p class="text-slate-300">Advanced ML models and intelligent systems leveraging the latest AI technologies.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">🔧 Tools & Utilities</h3>
+                    <p class="text-slate-300">Useful tools and utilities built to solve real-world problems efficiently.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-effect border-t py-12 mt-20">
+        <div class="container mx-auto px-6 text-center text-slate-400">
+            <p class="mb-4">© 2025 {{ data.profile.name }}. All rights reserved.</p>
+            <p class="text-sm">Built with Python & Flask</p>
+        </div>
+    </footer>
+
+</body>
+</html>

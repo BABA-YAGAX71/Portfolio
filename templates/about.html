@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - {{ data.profile.name }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
+        .gradient-text { background: linear-gradient(135deg, #3b82f6, #1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .glass-effect-light {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .rounded-3xl { border-radius: 30px; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Rahi</h1>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-blue-400 transition">Home</a>
+                <a href="/about" class="text-blue-400 font-semibold">About</a>
+                <a href="/projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="/contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-16">
+        <!-- About Section -->
+        <section class="mb-20">
+            <h1 class="text-5xl font-bold text-white mb-8">About Me</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="md:col-span-2">
+                    <p class="text-lg text-slate-300 mb-6 leading-relaxed">
+                        I'm a passionate AI Developer at Softevence, Betopia Group, with expertise in artificial intelligence, machine learning, and advanced data processing. With experience across multiple programming languages and AI frameworks, I excel at developing intelligent solutions and solving complex problems.
+                    </p>
+                    <p class="text-lg text-slate-300 mb-6 leading-relaxed">
+                        My journey in AI development includes building machine learning models, implementing RAG systems for context-aware AI responses, and creating full-stack applications. I'm proficient in modern AI frameworks and continuously exploring emerging technologies in the AI/ML space.
+                    </p>
+                    <p class="text-lg text-slate-300 mb-6 leading-relaxed">
+                        I'm dedicated to continuous learning and innovation. I thrive in collaborative environments and enjoy contributing to cutting-edge AI projects at Softevence that make a real impact.
+                    </p>
+                </div>
+                <div>
+                    <div class="glass-card p-1 rounded-3xl">
+                        <img src="/static/images/profile.jpg" alt="{{ data.profile.name }}" class="rounded-3xl shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-white mb-12">Skills & Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {% for skill_group in data.skills %}
+                <div class="glass-card p-8 rounded-3xl hover:border-blue-500 transition">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-6">{{ skill_group.category }}</h3>
+                    <div class="flex flex-wrap gap-3">
+                        {% for skill in skill_group.skills %}
+                        <span class="glass-effect-light text-blue-300 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/30">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Achievements & CP Stats -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-white mb-12">Achievements & Stats</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-3xl border border-slate-700">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-6">🏆 Key Achievements</h3>
+                    <ul class="space-y-4">
+                        {% for achievement in data.achievements %}
+                        <li class="flex items-start">
+                            <span class="text-green-400 text-xl mr-3">✓</span>
+                            <div>
+                                <strong class="text-white block">{{ achievement.title }}</strong>
+                                <p class="text-slate-400 text-sm mt-1">{{ achievement.description }}</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border border-slate-700">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-6">💻 Problem Solving</h3>
+                    <ul class="space-y-4">
+                        {% for stat in data.cp_stats %}
+                        <li class="flex items-center text-slate-300">
+                            <span class="w-3 h-3 bg-blue-500 rounded-full mr-4"></span>
+                            <span>{{ stat }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-white mb-12">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {% for cert in data.certifications %}
+                <div class="glass-card p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition group">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">📜</div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-2">{{ cert.title }}</h3>
+                            <p class="text-slate-400 text-sm mb-1">{{ cert.issuer }}</p>
+                            <p class="text-slate-500 text-sm mb-4">{{ cert.date }}</p>
+                            <a href="{{ cert.url }}" class="text-blue-400 hover:text-blue-300 transition text-sm font-semibold">{{ cert.credential }} →</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="glass-card rounded-3xl p-12 border border-slate-700 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Get In Touch</h2>
+            <div class="space-y-4 text-lg">
+                <p><span class="text-slate-400">📍 Location:</span> <span class="text-white font-semibold">{{ data.profile.location }}</span></p>
+                <p><span class="text-slate-400">📧 Email:</span> <a href="mailto:{{ data.profile.email }}" class="text-blue-400 hover:text-blue-300 font-semibold">{{ data.profile.email }}</a></p>
+                <p><span class="text-slate-400">📞 Phone:</span> <span class="text-white font-semibold">{{ data.profile.phone }}</span></p>
+            </div>
+            <div class="mt-8 flex justify-center gap-6 flex-wrap">
+                {% for social in data.profile.socials %}
+                <a href="{{ social.url }}" target="_blank" class="glass-effect-light text-blue-400 px-6 py-2 rounded-xl transition font-semibold border border-blue-500/30">{{ social.platform }}</a>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-effect border-t py-12 mt-20">
+        <div class="container mx-auto px-6 text-center text-slate-400">
+            <p class="mb-4">© 2025 {{ data.profile.name }}. All rights reserved.</p>
+            <p class="text-sm">Built with Python & Flask</p>
+        </div>
+    </footer>
+
+</body>
+</html>

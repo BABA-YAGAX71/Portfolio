@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - {{ data.profile.name }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
+        .gradient-text { background: linear-gradient(135deg, #3b82f6, #1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-effect {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .glass-effect-light {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        .rounded-3xl { border-radius: 30px; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Rahi</h1>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-blue-400 transition">Home</a>
+                <a href="/about" class="hover:text-blue-400 transition">About</a>
+                <a href="/projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="/contact" class="text-blue-400 font-semibold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-16">
+        <h1 class="text-5xl font-bold text-white mb-4 text-center">Get In Touch</h1>
+        <p class="text-xl text-slate-400 text-center mb-16 max-w-2xl mx-auto">
+            I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Contact Information -->
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-8">Contact Information</h2>
+                
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="text-blue-400 text-3xl mt-2">📍</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Location</h3>
+                            <p class="text-slate-400">{{ data.profile.location }}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-blue-400 text-3xl mt-2">📧</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Email</h3>
+                            <a href="mailto:{{ data.profile.email }}" class="text-blue-400 hover:text-blue-300 transition">{{ data.profile.email }}</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-blue-400 text-3xl mt-2">📞</div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Phone</h3>
+                            <a href="tel:{{ data.profile.phone }}" class="text-blue-400 hover:text-blue-300 transition">{{ data.profile.phone }}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-xl font-bold text-white mb-6">Connect With Me</h3>
+                    <div class="flex gap-4 flex-wrap">
+                        {% for social in data.profile.socials %}
+                        <a href="{{ social.url }}" target="_blank" class="glass-effect-light text-blue-400 px-6 py-3 rounded-xl transition font-semibold border border-blue-500/30">
+                            {{ social.platform }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Facts -->
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-8">Quick Facts</h2>
+                
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-700">
+                        <h3 class="text-blue-400 font-semibold mb-2">Current Focus</h3>
+                        <p class="text-slate-300">Building intelligent AI/ML solutions at Softevence, Betopia Group</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-3xl border border-slate-700">
+                        <h3 class="text-blue-400 font-semibold mb-2">Experience Level</h3>
+                        <p class="text-slate-300">AI Developer with expertise in machine learning and full-stack development</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-3xl border border-slate-700">
+                        <h3 class="text-blue-400 font-semibold mb-2">Open To</h3>
+                        <p class="text-slate-300">AI/ML projects, remote work, and innovative opportunities</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-3xl border border-slate-700">
+                        <h3 class="text-blue-400 font-semibold mb-2">Response Time</h3>
+                        <p class="text-slate-300">Usually respond within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="glass-card rounded-3xl p-12 border border-slate-700 text-center mt-20">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Work Together?</h2>
+            <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+                Whether you have a project in mind or just want to chat, I'd love to hear from you.
+            </p>
+            <a href="mailto:{{ data.profile.email }}" class="glass-effect-light text-blue-400 px-8 py-4 rounded-xl font-bold transition border border-blue-500/30 hover:bg-blue-500/10">
+                Send Me an Email
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-effect border-t py-12 mt-20">
+        <div class="container mx-auto px-6 text-center text-slate-400">
+            <p class="mb-4">© 2025 {{ data.profile.name }}. All rights reserved.</p>
+            <p class="text-sm">Built with Python & Flask</p>
+        </div>
+    </footer>
+
+</body>
+</html>
