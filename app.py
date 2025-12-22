@@ -16,6 +16,7 @@ portfolio_data = {
         "socials": [
             {"platform": "GitHub", "url": "https://github.com/BABA-YAGAX71"},
             {"platform": "LinkedIn", "url": "https://www.linkedin.com/in/md-shahriar-rashid-867008263/"},
+            {"platform": "Codeforces", "url": "https://codeforces.com/profile/babayagaxrahi123"},
             {"platform": "Email", "url": "mailto:babayagxrahi123@gmail.com"},
         ]
     },

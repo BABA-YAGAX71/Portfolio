@@ -6,27 +6,28 @@
     <title>About - {{ data.profile.name }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
-        .gradient-text { background: linear-gradient(135deg, #3b82f6, #1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1a2847 20%, #0d1b2a 40%, #1a2847 60%, #0d1b2a 80%, #1a2847 100%); background-attachment: fixed; }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-effect {
-            background: rgba(15, 23, 42, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: rgba(20, 30, 48, 0.6);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         .glass-effect-light {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(100, 116, 139, 0.2);
+            background: rgba(45, 62, 111, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
         }
         .glass-card {
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(148, 163, 184, 0.15);
+            background: rgba(30, 58, 95, 0.35);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(96, 165, 250, 0.2);
             transition: all 0.3s ease;
         }
         .glass-card:hover {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(96, 165, 250, 0.4);
         }
         .rounded-3xl { border-radius: 30px; }
     </style>
@@ -137,6 +138,21 @@
                     </div>
                 </div>
                 {% endfor %}
+            </div>
+        </section>
+
+        <!-- Codeforces Section -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-white mb-8">Competitive Programming</h2>
+            <div class="glass-card p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition">
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-400 mb-2">⚡ Codeforces Profile</h3>
+                        <p class="text-slate-300">Username: <span class="text-white font-semibold">babayagaxrahi123</span></p>
+                    </div>
+                    <a href="https://codeforces.com/profile/babayagaxrahi123" target="_blank" class="glass-effect-light text-blue-400 px-6 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:border-blue-400">View Profile →</a>
+                </div>
+                <p class="text-slate-300 leading-relaxed">Actively participating in Codeforces contests and solving algorithmic problems. Proficient in competitive programming with expertise in data structures, algorithms, and problem-solving optimization.</p>
             </div>
         </section>
 
