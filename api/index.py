@@ -44,7 +44,7 @@ portfolio_data = {
             "title": "Machine Learning Projects",
             "description": "Advanced ML models for classification, regression, and clustering tasks. Includes data preprocessing, feature engineering, and model optimization with scikit-learn, TensorFlow, and PyTorch.",
             "tech_stack": "Python, TensorFlow, PyTorch, scikit-learn, Pandas, NumPy",
-            "link": "#"
+            "link": "/projects/ml"
         },
         {
             "title": "RAG (Retrieval-Augmented Generation) System",
@@ -166,3 +166,7 @@ def projects():
 @app.route('/contact')
 def contact():
     return render_template('contact.html', data=portfolio_data)
+
+@app.route('/projects/ml')
+def ml_projects():
+    return render_template('ml-projects.html', data=portfolio_data)
