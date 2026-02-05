@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Projects - {{ data.profile.name }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1a2847 20%, #0d1b2a 40%, #1a2847 60%, #0d1b2a 80%, #1a2847 100%); background-attachment: fixed; }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-effect {
+            background: rgba(20, 30, 48, 0.6);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .glass-effect-light {
+            background: rgba(45, 62, 111, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+        }
+        .glass-card {
+            background: rgba(30, 58, 95, 0.35);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            transform: translateY(-5px);
+        }
+        .rounded-3xl { border-radius: 30px; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="glass-effect sticky top-0 z-50 border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold gradient-text">Rahi</h1>
+            <div class="flex gap-6">
+                <a href="/" class="hover:text-blue-400 transition">Home</a>
+                <a href="/about" class="hover:text-blue-400 transition">About</a>
+                <a href="/projects" class="text-blue-400 font-semibold">Projects</a>
+                <a href="/contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-16">
+        <!-- Back Button -->
+        <a href="/projects" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition mb-8">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to Projects
+        </a>
+
+        <h1 class="text-5xl font-bold text-white mb-4">🎯 Machine Learning Projects</h1>
+        <p class="text-xl text-slate-400 mb-12">Explore my machine learning and AI projects showcasing various techniques from computer vision to financial modeling.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Car Number Plate Recognition -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-44 bg-gradient-to-br from-purple-500/30 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl">🚗</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-3">Car Number Plate Recognition</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">Computer vision project for automatic license plate detection and recognition using deep learning techniques.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Computer Vision</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">OCR</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Deep Learning</span>
+                    </div>
+                    <a href="https://github.com/BABA-YAGAX71/Car_number_plate_recognition" target="_blank" class="inline-flex items-center gap-2 glass-effect-light text-blue-400 px-4 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:bg-blue-500/20">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Fraud Detection -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-44 bg-gradient-to-br from-red-500/30 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl">🔍</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-3">Fraud Detection</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">Machine learning model for detecting fraudulent transactions using advanced classification and anomaly detection techniques.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Classification</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Anomaly Detection</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Finance</span>
+                    </div>
+                    <a href="https://github.com/BABA-YAGAX71/Fraud_Detection" target="_blank" class="inline-flex items-center gap-2 glass-effect-light text-blue-400 px-4 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:bg-blue-500/20">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Finance Agent -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-44 bg-gradient-to-br from-green-500/30 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl">💰</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-3">Finance Agent</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">AI-powered financial agent for automated analysis, predictions, and intelligent financial decision support.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">AI Agent</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Finance</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">LLM</span>
+                    </div>
+                    <a href="https://github.com/BABA-YAGAX71/Finance_Agent_" target="_blank" class="inline-flex items-center gap-2 glass-effect-light text-blue-400 px-4 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:bg-blue-500/20">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- SVM Kernel Comparison -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-44 bg-gradient-to-br from-yellow-500/30 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl">📊</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-3">SVM Kernel Comparison</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">Lab report comparing different SVM kernels using scikit-learn for classification tasks and performance analysis.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">SVM</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Scikit-learn</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Research</span>
+                    </div>
+                    <a href="https://github.com/BABA-YAGAX71/DS422-LAB-REPORT-SVM-Kernel-Comparison-scikit-learn-" target="_blank" class="inline-flex items-center gap-2 glass-effect-light text-blue-400 px-4 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:bg-blue-500/20">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- AirBnb Price Prediction -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-44 bg-gradient-to-br from-pink-500/30 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl">🏠</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-3">AirBnb Price Prediction</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">Machine learning model to predict AirBnb listing prices based on various features and location data.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Regression</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Price Prediction</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Data Analysis</span>
+                    </div>
+                    <a href="https://github.com/BABA-YAGAX71/AirBnb_price_prediction" target="_blank" class="inline-flex items-center gap-2 glass-effect-light text-blue-400 px-4 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:bg-blue-500/20">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Neural Networks for Handwritten Digit Recognition -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-44 bg-gradient-to-br from-cyan-500/30 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl">🧠</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-3">Neural Networks - Digit Recognition</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">Multiclass neural network implementation for handwritten digit recognition using deep learning.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Neural Networks</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Multiclass</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Deep Learning</span>
+                    </div>
+                    <a href="https://github.com/BABA-YAGAX71/Neural-Networks-for-Handwritten-Digit-Recognition-Multiclass" target="_blank" class="inline-flex items-center gap-2 glass-effect-light text-blue-400 px-4 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:bg-blue-500/20">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Digit Classification -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition border border-slate-700 group">
+                <div class="h-44 bg-gradient-to-br from-indigo-500/30 to-slate-900 flex items-center justify-center">
+                    <span class="text-6xl">🔢</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition mb-3">Digit Classification</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-4">Image classification project for recognizing handwritten digits using various ML algorithms.</p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Classification</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Image Processing</span>
+                        <span class="glass-effect-light text-blue-300 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">MNIST</span>
+                    </div>
+                    <a href="https://github.com/BABA-YAGAX71/Digit_classification" target="_blank" class="inline-flex items-center gap-2 glass-effect-light text-blue-400 px-4 py-2 rounded-xl transition font-semibold border border-blue-500/30 hover:bg-blue-500/20">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-effect border-t py-12 mt-20">
+        <div class="container mx-auto px-6 text-center text-slate-400">
+            <p class="mb-4">© 2025 {{ data.profile.name }}. All rights reserved.</p>
+            <p class="text-sm">Built with Python & Flask</p>
+        </div>
+    </footer>
+
+</body>
+</html>
